@@ -1,0 +1,7 @@
+{
+  "name": "ITLabs Ghana",
+  "description": "Premium tech brand website for ITLabs Ghana, offering high-end software solutions from Abetifi, Kwahu.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
