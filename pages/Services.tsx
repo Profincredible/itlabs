@@ -68,7 +68,7 @@ const Services: React.FC = () => {
                <span className="gradient-text">Gift Offer 🎁</span>
             </h2>
             <p className="text-slate-300 text-lg md:text-xl font-medium">
-               Kickstart 2024 with a professional online presence. We build the site, you just handle the hosting. No development fees.
+               Kickstart 2026 with a professional online presence. We build the site, you just handle the hosting. No development fees.
             </p>
           </div>
           <div className="flex flex-col items-center md:items-end gap-4">
