@@ -70,7 +70,7 @@ const App: React.FC = () => {
                 <span className="tracking-wide text-center uppercase">{BRAND.promo}</span>
               </div>
               <button onClick={() => setIsBannerVisible(false)} className="text-white/60 hover:text-white p-1 ml-4 transition-colors">
-                <X size={16} className="md:w-4 md:h-4" />
+                <X className="w-4 h-4" />
               </button>
             </div>
           </div>
