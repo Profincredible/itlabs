@@ -22,6 +22,18 @@
         color: #f8fafc;
         margin: 0;
         overflow-x: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      /* Improve mobile scroll performance */
+      @media (max-width: 768px) {
+        * {
+          -webkit-tap-highlight-color: transparent;
+        }
+        html {
+          scroll-behavior: smooth;
+        }
       }
       h1, h2, h3, h4, .nav-link, .brand-logo {
         font-family: 'Outfit', sans-serif;
