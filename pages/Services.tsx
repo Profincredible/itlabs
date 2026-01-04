@@ -1,7 +1,7 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as LucideIcons from 'lucide-react';
-import { SERVICES, BRAND } from '../constants';
+import { SERVICES, BRAND, SERVICE_ROUTES } from '../constants';
 
 const Services: React.FC = () => {
   return (
@@ -24,10 +24,12 @@ const Services: React.FC = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {SERVICES.map((service) => {
           const Icon = (LucideIcons as any)[service.iconName];
+          const serviceLink = SERVICE_ROUTES[service.id] || '/services';
           return (
-            <div 
-              key={service.id} 
-              className="glass p-10 rounded-[2.5rem] border-slate-700/50 hover:border-indigo-500/50 transition-all group relative overflow-hidden flex flex-col min-h-[400px]"
+            <Link
+              key={service.id}
+              to={serviceLink}
+              className="glass p-10 rounded-[2.5rem] border-slate-700/50 hover:border-indigo-500/50 transition-all group relative overflow-hidden flex flex-col min-h-[400px] cursor-pointer"
             >
               <div className="absolute top-6 right-6">
                 <span className="text-[10px] font-black uppercase tracking-widest bg-indigo-500/20 text-indigo-400 px-4 py-2 rounded-full border border-indigo-500/30">
@@ -44,10 +46,10 @@ const Services: React.FC = () => {
                 {service.description}
               </p>
               
-              <button className="text-white text-sm font-black flex items-center gap-2 group/btn bg-white/5 self-start px-6 py-3 rounded-xl hover:bg-white/10 transition-all">
-                Request Quote <LucideIcons.ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
-            </div>
+              <div className="text-white text-sm font-black flex items-center gap-2 group/btn bg-white/5 self-start px-6 py-3 rounded-xl group-hover:bg-white/10 transition-all">
+                Learn More <LucideIcons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
           );
         })}
       </div>

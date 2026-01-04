@@ -63,6 +63,18 @@ export const SERVICES: Service[] = [
   }
 ];
 
+// Service route mappings
+export const SERVICE_ROUTES: { [key: string]: string } = {
+  'web': '/services/web-development',
+  'mobile': '/services/mobile-apps',
+  'saas': '/services/cloud-solutions',
+  'software': '/services/cloud-solutions',
+  'crm': '/services/ai-integration'
+};
+
+// Promo text used across service detail pages
+export const PROMO_TEXT = 'Take advantage of our New Year promo - free development labor! You only pay for domain and hosting.';
+
 export const PROJECTS: Project[] = [
   {
     id: '1',
