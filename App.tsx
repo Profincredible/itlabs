@@ -6,11 +6,11 @@ import {
   Github, 
   Linkedin, 
   Twitter, 
-  ArrowRight,
   Mail,
   Phone,
   Gift,
-  ChevronRight
+  ChevronRight,
+  MapPin
 } from 'lucide-react';
 import { BRAND } from './constants';
 import Home from './pages/Home';
@@ -54,7 +54,7 @@ const App: React.FC = () => {
     { name: 'About', path: '/about' },
   ];
 
-  const mainPaddingTop = isBannerVisible ? 'pt-[110px] md:pt-[130px]' : 'pt-[60px] md:pt-[80px]';
+  const mainPaddingTop = isBannerVisible ? 'pt-[105px] md:pt-[130px]' : 'pt-[65px] md:pt-[80px]';
 
   return (
     <div className="min-h-screen selection:bg-indigo-500 selection:text-white flex flex-col">
@@ -64,12 +64,12 @@ const App: React.FC = () => {
       <header className="fixed w-full top-0 z-[100] transition-transform duration-300">
         {isBannerVisible && (
           <div className="bg-indigo-600 relative overflow-hidden border-b border-white/10">
-            <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between text-[10px] md:text-xs font-bold text-white relative z-10">
+            <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between text-[9px] md:text-xs font-bold text-white relative z-10">
               <div className="flex-1 flex justify-center items-center gap-2">
-                <Gift className="w-3.5 h-3.5 text-yellow-400" />
-                <span className="tracking-wide text-center">{BRAND.promo}</span>
+                <Gift className="w-3 h-3 text-yellow-400" />
+                <span className="tracking-wide text-center uppercase">{BRAND.promo}</span>
               </div>
-              <button onClick={() => setIsBannerVisible(false)} className="text-white/60 hover:text-white p-1 ml-4">
+              <button onClick={() => setIsBannerVisible(false)} className="text-white/60 hover:text-white p-1 ml-4 transition-colors">
                 <X size={14} />
               </button>
             </div>
@@ -78,8 +78,8 @@ const App: React.FC = () => {
 
         <nav className={`transition-all duration-500 ${
           isScrolled 
-            ? 'glass py-1.5 border-white/10 shadow-2xl backdrop-blur-3xl' 
-            : 'bg-transparent py-3 border-transparent'
+            ? 'glass py-2 border-white/10 shadow-2xl backdrop-blur-3xl' 
+            : 'bg-transparent py-4 border-transparent'
         }`}>
           <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2 group z-50">
@@ -92,7 +92,7 @@ const App: React.FC = () => {
               </div>
             </Link>
 
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <NavLink 
                   key={link.path} 
@@ -109,7 +109,7 @@ const App: React.FC = () => {
               ))}
               <a 
                 href={`mailto:${BRAND.emails.general}`}
-                className="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-[9px] font-black uppercase tracking-widest rounded-lg transition-all shadow-lg"
+                className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-[9px] font-black uppercase tracking-widest rounded-lg transition-all shadow-lg active:scale-95"
               >
                 Inquiry
               </a>
@@ -117,7 +117,7 @@ const App: React.FC = () => {
 
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)} 
-              className={`md:hidden p-1.5 z-[101] rounded-lg transition-all ${
+              className={`md:hidden p-2 z-[101] rounded-lg transition-all ${
                 isMenuOpen ? 'bg-white/10 text-white' : 'text-white hover:bg-white/5'
               }`}
             >
@@ -125,32 +125,32 @@ const App: React.FC = () => {
             </button>
           </div>
 
-          {/* Compact Mobile Nav Dropdown */}
-          <div className={`md:hidden absolute top-full left-0 w-full glass backdrop-blur-3xl border-b border-white/10 transition-all duration-500 overflow-hidden ${
-            isMenuOpen ? 'max-h-[80vh] opacity-100 py-8' : 'max-h-0 opacity-0 py-0'
+          {/* Compact Mobile Nav - Dropdown Style */}
+          <div className={`md:hidden absolute top-full left-0 w-full glass backdrop-blur-3xl border-b border-white/10 transition-all duration-500 ease-in-out overflow-hidden ${
+            isMenuOpen ? 'max-h-[85vh] opacity-100 py-10' : 'max-h-0 opacity-0 py-0'
           }`}>
-            <div className="flex flex-col gap-6 px-8 items-center text-center">
+            <div className="flex flex-col gap-8 px-10 items-center text-center">
               {navLinks.map((link) => (
                 <Link 
                   key={link.path} 
                   to={link.path} 
-                  className="text-xl font-black text-white hover:text-indigo-400 transition-colors uppercase tracking-tighter"
+                  className="text-2xl font-black text-white hover:text-indigo-400 transition-colors uppercase tracking-tight"
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="h-px bg-white/10 w-full" />
-              <div className="flex flex-col gap-3">
+              <div className="h-px bg-white/5 w-full max-w-[100px]" />
+              <div className="flex flex-col gap-4">
                 <a href={`tel:${BRAND.phone}`} className="text-xs text-slate-400 font-bold flex items-center justify-center gap-2">
                   <Phone size={14} className="text-indigo-500" /> {BRAND.phone}
                 </a>
                 <a href={`mailto:${BRAND.emails.general}`} className="text-xs text-slate-400 font-bold flex items-center justify-center gap-2">
-                  <Mail size={14} className="text-indigo-500" /> support@itlabsghana.com
+                  <Mail size={14} className="text-indigo-500" /> info@itlabsghana.com
                 </a>
               </div>
               <Link 
                 to="/services"
-                className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-black rounded-xl shadow-xl uppercase tracking-widest"
+                className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-black rounded-xl shadow-xl uppercase tracking-widest active:scale-95"
               >
                 Claim Free Website
               </Link>
@@ -172,62 +172,62 @@ const App: React.FC = () => {
 
       <AIChatbot />
 
-      <footer className="glass border-t border-white/5 pt-12 pb-8 mt-12 relative">
+      <footer className="glass border-t border-white/5 pt-16 pb-12 mt-20 relative">
         <div className="max-w-7xl mx-auto px-6 text-center md:text-left">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-            <div className="space-y-4">
-              <Link to="/" className="flex items-center justify-center md:justify-start gap-2">
-                <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-black text-xs">IL</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div className="space-y-6">
+              <Link to="/" className="flex items-center justify-center md:justify-start gap-2.5">
+                <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
+                  <span className="text-white font-black text-sm">IL</span>
                 </div>
-                <span className="text-base font-black tracking-tight text-white uppercase brand-logo">{BRAND.name}</span>
+                <span className="text-lg font-black tracking-tighter text-white uppercase brand-logo">{BRAND.name}</span>
               </Link>
               <p className="text-slate-500 text-[10px] leading-relaxed max-w-xs mx-auto md:mx-0 font-bold uppercase tracking-widest">
-                Software engineered for growth. Built in Abetifi, deployed globally.
+                Elite software engineering from the Kwahu hills. Architecting the digital economy of 2026.
               </p>
               <div className="flex justify-center md:justify-start gap-3">
                 {[Twitter, Linkedin, Github].map((Icon, i) => (
-                  <a key={i} href="#" className="w-8 h-8 glass rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-all">
-                    <Icon size={14} />
+                  <a key={i} href="#" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-all hover:bg-indigo-500/10">
+                    <Icon size={16} />
                   </a>
                 ))}
               </div>
             </div>
 
             <div className="hidden sm:block">
-              <h4 className="text-white font-black mb-4 text-[9px] uppercase tracking-[0.2em]">Quick Links</h4>
-              <ul className="space-y-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
+              <h4 className="text-white font-black mb-6 text-[10px] uppercase tracking-[0.2em]">Navigations</h4>
+              <ul className="space-y-3 text-[10px] font-black uppercase tracking-widest text-slate-500">
                 {navLinks.map(link => (
-                  <li key={link.path}><Link to={link.path} className="hover:text-indigo-400 transition-colors">{link.name}</Link></li>
+                  <li key={link.path}><Link to={link.path} className="hover:text-indigo-400 transition-colors flex items-center justify-center md:justify-start gap-2 group"><ChevronRight size={10} className="group-hover:translate-x-1 transition-transform" />{link.name}</Link></li>
                 ))}
               </ul>
             </div>
 
             <div className="hidden lg:block">
-              <h4 className="text-white font-black mb-4 text-[9px] uppercase tracking-[0.2em]">Capabilities</h4>
-              <ul className="space-y-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
-                <li>Web Creation</li>
-                <li>Custom SaaS</li>
-                <li>Mobile Logic</li>
-                <li>CRM Systems</li>
+              <h4 className="text-white font-black mb-6 text-[10px] uppercase tracking-[0.2em]">Engineering</h4>
+              <ul className="space-y-3 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <li>Web Architectures</li>
+                <li>Custom SaaS Engines</li>
+                <li>Fintech Mobiles</li>
+                <li>Logic Optimization</li>
               </ul>
             </div>
 
-            <div className="space-y-4">
-              <h4 className="text-white font-black text-[9px] uppercase tracking-[0.2em]">Headquarters</h4>
-              <div className="text-[10px] text-slate-400 font-bold space-y-2">
-                <p className="flex items-center justify-center md:justify-start gap-2"><MapPin size={12} className="text-indigo-500" /> {BRAND.location}</p>
-                <p className="flex items-center justify-center md:justify-start gap-2"><Phone size={12} className="text-indigo-500" /> {BRAND.phone}</p>
-                <p className="flex items-center justify-center md:justify-start gap-2"><Mail size={12} className="text-indigo-500" /> support@itlabsghana.com</p>
+            <div className="space-y-6">
+              <h4 className="text-white font-black text-[10px] uppercase tracking-[0.2em]">Kwahu HQ</h4>
+              <div className="text-[10px] text-slate-400 font-bold space-y-3">
+                <p className="flex items-center justify-center md:justify-start gap-3"><MapPin size={14} className="text-indigo-500 shrink-0" /> {BRAND.location}</p>
+                <p className="flex items-center justify-center md:justify-start gap-3"><Phone size={14} className="text-indigo-500 shrink-0" /> {BRAND.phone}</p>
+                <p className="flex items-center justify-center md:justify-start gap-3"><Mail size={14} className="text-indigo-500 shrink-0" /> info@itlabsghana.com</p>
               </div>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[8px] text-slate-600 font-black uppercase tracking-[0.2em]">
-            <p>&copy; 2026 {BRAND.name}. Established Since 2024. All Rights Reserved.</p>
-            <div className="flex gap-4">
-              <Link to="/privacy">Privacy</Link>
-              <Link to="/terms">Terms</Link>
+          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] text-slate-600 font-black uppercase tracking-[0.15em]">
+            <p>&copy; 2026 {BRAND.name}. Established Since 2024. All Assets Protected.</p>
+            <div className="flex gap-6">
+              <Link to="/privacy" className="hover:text-indigo-400 transition-colors">Privacy</Link>
+              <Link to="/terms" className="hover:text-indigo-400 transition-colors">Terms</Link>
             </div>
           </div>
         </div>
@@ -235,9 +235,6 @@ const App: React.FC = () => {
     </div>
   );
 };
-
-// Re-using some generic icons not imported but available in lucide-react through the provided code
-const MapPin = ({ size, className }: any) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>;
 
 const Root: React.FC = () => (
   <Router>

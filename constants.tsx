@@ -65,56 +65,56 @@ export const SERVICES: Service[] = [
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Visionary CRM',
-    category: 'Enterprise / CRM',
-    description: 'A cloud-based client management portal for logistics companies across West Africa.',
+    title: 'Quantum CRM',
+    category: 'Software Architecture',
+    description: 'Enterprise resource planning system built for high-scale logistics and multi-region data sync.',
     image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?auto=format&fit=crop&w=1200&q=80',
     link: '#'
   },
   {
     id: '2',
-    title: 'Lumina Dashboard',
-    category: 'SaaS / Analytics',
-    description: 'Real-time data visualization platform for monitoring agricultural yields in the Eastern Region.',
-    image: 'https://images.unsplash.com/photo-1504868584819-f8e90526ef49?auto=format&fit=crop&w=1200&q=80',
+    title: 'Nebula Dashboard',
+    category: 'Cloud Engineering',
+    description: 'Real-time monitoring system for distributed server networks and edge computing nodes.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
     link: '#'
   },
   {
     id: '3',
-    title: 'Kwahu Pay App',
-    category: 'Fintech / Mobile',
-    description: 'Secure mobile payment gateway supporting local mobile money integrations for retailers.',
+    title: 'Titan Pay',
+    category: 'Fintech Mobile',
+    description: 'Biometric-secured payment gateway facilitating millions of transactions across the continent.',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
     link: '#'
   },
   {
     id: '4',
-    title: 'EduCloud GH',
-    category: 'EdTech / Web',
-    description: 'Remote learning platform with interactive whiteboards and student progress tracking.',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
+    title: 'Core Engine 2.0',
+    category: 'System Logic',
+    description: 'Back-end infrastructure for a national education portal, serving over 500k active users.',
+    image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1200&q=80',
     link: '#'
   },
   {
     id: '5',
-    title: 'HealthLink Mobile',
-    category: 'Health / App',
-    description: 'Connecting patients with regional doctors via end-to-end encrypted video consultations.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
+    title: 'Guardian AI',
+    category: 'Cyber Security',
+    description: 'Automated threat detection and intrusion prevention system for government-level assets.',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
     link: '#'
   },
   {
     id: '6',
-    title: 'Estate Pro Web',
-    category: 'Real Estate / Web',
-    description: 'High-end property listing site with 3D virtual tour integrations and automated booking.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    title: 'Flux SaaS',
+    category: 'Product Engineering',
+    description: 'A multi-tenant workflow automation tool designed for the modern remote-first workforce.',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
     link: '#'
   }
 ];
 
 export const STATS = [
-  { label: 'Established', value: '2024', icon: <Cpu className="w-5 h-5" /> },
-  { label: 'Uptime', value: '99.9%', icon: <Zap className="w-5 h-5" /> },
-  { label: 'Success', value: '100%', icon: <Shield className="w-5 h-5" /> },
+  { label: 'Uptime (2025)', value: '99.9%', icon: <Zap className="w-5 h-5" /> },
+  { label: 'Security Grade', value: 'A+', icon: <Shield className="w-5 h-5" /> },
+  { label: 'Tech Stack', value: 'Next-Gen', icon: <Cpu className="w-5 h-5" /> },
 ];

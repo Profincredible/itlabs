@@ -8,7 +8,7 @@ const Portfolio: React.FC = () => {
     <div className="max-w-7xl mx-auto px-6 py-20 space-y-24">
       <div className="max-w-3xl space-y-6">
         <h2 className="text-xs font-black tracking-[0.4em] text-indigo-400 uppercase">2026 Build Cycle</h2>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight">Elite Software <br /> Showcases.</h1>
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight">Digital <br /> Masterpieces.</h1>
         <p className="text-slate-400 text-xl font-medium leading-relaxed">
           Explore our collection of high-performance digital tools, from financial gateways to enterprise management systems.
         </p>
@@ -45,8 +45,8 @@ const Portfolio: React.FC = () => {
             </div>
             
             <div className="px-2 space-y-4 flex-1 flex flex-col">
-              <h3 className="text-3xl font-black text-white tracking-tight">{project.title}</h3>
-              <p className="text-slate-500 text-sm font-bold uppercase tracking-widest leading-relaxed flex-1">
+              <h3 className="text-3xl font-black text-white tracking-tight leading-none">{project.title}</h3>
+              <p className="text-slate-500 text-[11px] font-black uppercase tracking-[0.15em] leading-relaxed flex-1">
                 {project.description}
               </p>
               
@@ -60,7 +60,7 @@ const Portfolio: React.FC = () => {
         ))}
       </div>
 
-      {/* 2026 Campaign Callout */}
+      {/* 2026 Promo Callout */}
       <section className="glass rounded-[4rem] p-12 md:p-24 border-indigo-500/20 relative overflow-hidden">
         <div className="relative z-10 grid md:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
