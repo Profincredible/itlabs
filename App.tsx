@@ -26,26 +26,8 @@ function App() {
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/#contact' }
+    { name: 'About', path: '/about' }
   ];
-
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
-    
-    // If not on home page, navigate there first
-    if (window.location.pathname !== '/') {
-      window.location.href = '/#contact';
-      return;
-    }
-    
-    // Smooth scroll to contact section
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
 
   return (
     <Router>
@@ -53,7 +35,7 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         {/* Banner */}
         <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 text-center text-sm font-medium">
-          🎉 Special Offer: Get 20% off on all web development services this month!
+          🎁 New Year Gift: Free web development for all!
         </div>
 
         {/* Navigation */}
@@ -70,24 +52,13 @@ function App() {
               {/* Desktop Navigation */}
               <div className="hidden md:flex space-x-8">
                 {navLinks.map((link) => (
-                  link.name === 'Contact' ? (
-                    <a
-                      key={link.name}
-                      href={link.path}
-                      onClick={handleContactClick}
-                      className="text-gray-300 hover:text-white transition-colors duration-200"
-                    >
-                      {link.name}
-                    </a>
-                  ) : (
-                    <Link
-                      key={link.name}
-                      to={link.path}
-                      className="text-gray-300 hover:text-white transition-colors duration-200"
-                    >
-                      {link.name}
-                    </Link>
-                  )
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
                 ))}
               </div>
 
@@ -110,25 +81,14 @@ function App() {
             {isMenuOpen && (
               <div className="md:hidden pb-4">
                 {navLinks.map((link) => (
-                  link.name === 'Contact' ? (
-                    <a
-                      key={link.name}
-                      href={link.path}
-                      onClick={handleContactClick}
-                      className="block py-2 text-gray-300 hover:text-white transition-colors duration-200"
-                    >
-                      {link.name}
-                    </a>
-                  ) : (
-                    <Link
-                      key={link.name}
-                      to={link.path}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block py-2 text-gray-300 hover:text-white transition-colors duration-200"
-                    >
-                      {link.name}
-                    </Link>
-                  )
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-2 text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
                 ))}
               </div>
             )}
@@ -168,19 +128,11 @@ function App() {
                 <h3 className="text-white font-semibold mb-4">Quick Links</h3>
                 <ul className="space-y-2">
                   {navLinks.map((link) => (
-                    link.name === 'Contact' ? (
-                      <li key={link.name}>
-                        <a href={link.path} onClick={handleContactClick} className="text-gray-400 hover:text-white transition-colors duration-200">
-                          {link.name}
-                        </a>
-                      </li>
-                    ) : (
-                      <li key={link.name}>
-                        <Link to={link.path} className="text-gray-400 hover:text-white transition-colors duration-200">
-                          {link.name}
-                        </Link>
-                      </li>
-                    )
+                    <li key={link.name}>
+                      <Link to={link.path} className="text-gray-400 hover:text-white transition-colors duration-200">
+                        {link.name}
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               </div>
