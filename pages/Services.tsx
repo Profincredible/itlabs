@@ -1,17 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as LucideIcons from 'lucide-react';
-import { SERVICES, BRAND } from '../constants';
+import { SERVICES, BRAND, SERVICE_ROUTES } from '../constants';
 
 const Services: React.FC = () => {
-  const serviceRoutes: { [key: string]: string } = {
-    'web': '/services/web-development',
-    'mobile': '/services/mobile-apps',
-    'saas': '/services/cloud-solutions',
-    'software': '/services/cloud-solutions',
-    'crm': '/services/ai-integration'
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 md:py-24 space-y-24">
       <div className="flex flex-col md:flex-row items-end justify-between gap-8">
@@ -32,7 +24,7 @@ const Services: React.FC = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {SERVICES.map((service) => {
           const Icon = (LucideIcons as any)[service.iconName];
-          const serviceLink = serviceRoutes[service.id] || '/services';
+          const serviceLink = SERVICE_ROUTES[service.id] || '/services';
           return (
             <Link
               key={service.id}

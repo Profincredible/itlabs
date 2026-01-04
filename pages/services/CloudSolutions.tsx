@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Cloud, Check, ArrowLeft, ArrowRight } from 'lucide-react';
-import { BRAND } from '../../constants';
+import { BRAND, PROMO_TEXT } from '../../constants';
 
 const CloudSolutions: React.FC = () => {
   const features = [

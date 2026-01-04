@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Globe, Check, ArrowLeft, ArrowRight } from 'lucide-react';
-import { BRAND } from '../../constants';
+import { BRAND, PROMO_TEXT } from '../../constants';
 
 const WebDevelopment: React.FC = () => {
   const features = [
@@ -112,7 +112,7 @@ const WebDevelopment: React.FC = () => {
       <div className="glass p-10 md:p-16 rounded-[3rem] border-slate-700/50 text-center space-y-6">
         <h2 className="text-3xl md:text-4xl font-black text-white">Ready to Start Your Project?</h2>
         <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-          Take advantage of our New Year promo - free development labor! You only pay for domain and hosting.
+          {PROMO_TEXT}
         </p>
         <Link 
           to="/contact" 

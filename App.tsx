@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import Home from './pages/Home';
@@ -54,9 +54,10 @@ function App() {
 
 function AppContent({ navLinks, isMenuOpen, setIsMenuOpen, isBannerVisible, setIsBannerVisible }: any) {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleBannerClick = () => {
-    window.location.href = '/contact';
+    navigate('/contact');
   };
 
   const handleCloseBanner = (e: React.MouseEvent) => {

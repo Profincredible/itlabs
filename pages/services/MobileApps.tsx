@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Smartphone, Check, ArrowLeft, ArrowRight } from 'lucide-react';
-import { BRAND } from '../../constants';
+import { BRAND, PROMO_TEXT } from '../../constants';
 
 const MobileApps: React.FC = () => {
   const features = [
