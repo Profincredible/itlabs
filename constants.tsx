@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Globe, 
@@ -65,7 +66,7 @@ export const SERVICES: Service[] = [
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Quantum CRM',
+    title: 'Quantum ERP',
     category: 'Software Architecture',
     description: 'Enterprise resource planning system built for high-scale logistics and multi-region data sync.',
     image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?auto=format&fit=crop&w=1200&q=80',
@@ -92,7 +93,7 @@ export const PROJECTS: Project[] = [
     title: 'Core Engine 2.0',
     category: 'System Logic',
     description: 'Back-end infrastructure for a national education portal, serving over 500k active users.',
-    image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80',
     link: '#'
   },
   {
@@ -108,13 +109,13 @@ export const PROJECTS: Project[] = [
     title: 'Flux SaaS',
     category: 'Product Engineering',
     description: 'A multi-tenant workflow automation tool designed for the modern remote-first workforce.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1454165833767-0274b1767d91?auto=format&fit=crop&w=1200&q=80',
     link: '#'
   }
 ];
 
 export const STATS = [
-  { label: 'Uptime (2025)', value: '99.9%', icon: <Zap className="w-5 h-5" /> },
-  { label: 'Security Grade', value: 'A+', icon: <Shield className="w-5 h-5" /> },
-  { label: 'Tech Stack', value: 'Next-Gen', icon: <Cpu className="w-5 h-5" /> },
+  { label: 'Founded', value: '2024', icon: <Cpu className="w-5 h-5" /> },
+  { label: 'Uptime', value: '99.9%', icon: <Zap className="w-5 h-5" /> },
+  { label: 'Success', value: '100%', icon: <Shield className="w-5 h-5" /> },
 ];
