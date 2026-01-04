@@ -1,69 +1,119 @@
 import React from 'react';
-import { Gift } from 'lucide-react';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
-import { BRAND } from './constants/brand';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Menu, X, Gift } from 'lucide-react';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
-  const scrollToContact = () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const navLinks = [
+    { path: '/', label: 'Home' },
+    { path: '/services', label: 'Services' },
+    { path: '/about', label: 'About' },
+  ];
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Promotional Banner */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 text-sm">
-          <Gift className="w-4 h-4" />
-          <span>{BRAND.promo}</span>
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-blue-600">{BRAND.name}</span>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-blue-600 transition">Home</a>
-              <a href="#services" className="text-gray-700 hover:text-blue-600 transition">Services</a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600 transition">About</a>
-              <a href="#portfolio" className="text-gray-700 hover:text-blue-600 transition">Portfolio</a>
-              <button 
-                onClick={scrollToContact}
-                className="text-gray-700 hover:text-blue-600 transition"
-              >
-                Contact
-              </button>
-            </div>
+    <Router>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        {/* Promotional Banner */}
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 px-4 text-center">
+          <div className="flex items-center justify-center gap-2">
+            <Gift className="w-4 h-4" />
+            <span className="text-sm font-medium">
+              BRAND.promo
+            </span>
           </div>
         </div>
-      </nav>
 
-      {/* Main Content */}
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Portfolio />
-        <Contact />
-      </main>
+        {/* Navigation */}
+        <nav className="bg-white shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex items-center">
+                <Link to="/" className="flex items-center">
+                  <span className="text-2xl font-bold text-indigo-600">ITLabs</span>
+                </Link>
+              </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p>&copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center space-x-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <a
+                  href="#contact"
+                  onClick={handleContactClick}
+                  className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Contact
+                </a>
+              </div>
+
+              {/* Mobile menu button */}
+              <div className="md:hidden flex items-center">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="text-gray-700 hover:text-indigo-600"
+                >
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="md:hidden">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <a
+                  href="#contact"
+                  onClick={handleContactClick}
+                  className="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          )}
+        </nav>
+
+        {/* Main Content */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
