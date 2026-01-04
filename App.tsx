@@ -54,7 +54,7 @@ const App: React.FC = () => {
     { name: 'About', path: '/about' },
   ];
 
-  const mainPaddingTop = isBannerVisible ? 'pt-[105px] md:pt-[130px]' : 'pt-[65px] md:pt-[80px]';
+  const mainPaddingTop = isBannerVisible ? 'pt-[115px] md:pt-[130px]' : 'pt-[65px] md:pt-[80px]';
 
   return (
     <div className="min-h-screen selection:bg-indigo-500 selection:text-white flex flex-col">
@@ -64,13 +64,13 @@ const App: React.FC = () => {
       <header className="fixed w-full top-0 z-[100] transition-transform duration-300">
         {isBannerVisible && (
           <div className="bg-indigo-600 relative overflow-hidden border-b border-white/10">
-            <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between text-[9px] md:text-xs font-bold text-white relative z-10">
-              <div className="flex-1 flex justify-center items-center gap-2">
-                <Gift className="w-3 h-3 text-yellow-400" />
+            <div className="max-w-7xl mx-auto px-4 py-3 md:py-2 flex items-center justify-between text-xs md:text-sm font-bold text-white relative z-10">
+              <div className="flex-1 flex justify-center items-center gap-2 md:gap-3">
+                <Gift className="w-5 h-5 md:w-6 md:h-6 text-yellow-400 flex-shrink-0" />
                 <span className="tracking-wide text-center uppercase">{BRAND.promo}</span>
               </div>
               <button onClick={() => setIsBannerVisible(false)} className="text-white/60 hover:text-white p-1 ml-4 transition-colors">
-                <X size={14} />
+                <X className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -87,8 +87,8 @@ const App: React.FC = () => {
                 <span className="text-white font-black text-sm md:text-base tracking-tighter">IL</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-sm md:text-base font-black tracking-tight text-white uppercase leading-none brand-logo">{BRAND.name}</span>
-                <span className="text-[7px] font-bold text-indigo-400 tracking-[0.2em] uppercase mt-0.5">Digital Mastery</span>
+                <span className="text-base md:text-lg font-black tracking-tight text-white uppercase leading-none brand-logo">{BRAND.name}</span>
+                <span className="text-[8px] md:text-[9px] font-bold text-indigo-400 tracking-[0.2em] uppercase mt-0.5">Digital Mastery</span>
               </div>
             </Link>
 
@@ -98,7 +98,7 @@ const App: React.FC = () => {
                   key={link.path} 
                   to={link.path} 
                   className={({ isActive }) => 
-                    `text-[9px] font-black uppercase tracking-widest transition-all relative group nav-link ${
+                    `text-xs md:text-sm font-black uppercase tracking-widest transition-all relative group nav-link ${
                       isActive ? 'text-indigo-400' : 'text-slate-300 hover:text-white'
                     }`
                   }
@@ -109,7 +109,7 @@ const App: React.FC = () => {
               ))}
               <a 
                 href={`mailto:${BRAND.emails.general}`}
-                className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-[9px] font-black uppercase tracking-widest rounded-lg transition-all shadow-lg active:scale-95"
+                className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-lg transition-all shadow-lg active:scale-95"
               >
                 Inquiry
               </a>
@@ -126,31 +126,31 @@ const App: React.FC = () => {
           </div>
 
           {/* Compact Mobile Nav - Dropdown Style */}
-          <div className={`md:hidden absolute top-full left-0 w-full glass backdrop-blur-3xl border-b border-white/10 transition-all duration-500 ease-in-out overflow-hidden ${
-            isMenuOpen ? 'max-h-[85vh] opacity-100 py-10' : 'max-h-0 opacity-0 py-0'
-          }`}>
-            <div className="flex flex-col gap-8 px-10 items-center text-center">
+          <div className={`md:hidden fixed top-[65px] left-0 w-full glass backdrop-blur-3xl border-b border-white/10 transition-all duration-500 ease-in-out overflow-y-auto ${
+            isMenuOpen ? 'max-h-[calc(100vh-65px)] opacity-100 py-8' : 'max-h-0 opacity-0 py-0'
+          }`} style={{ zIndex: 99 }}>
+            <div className="flex flex-col gap-6 px-10 items-center text-center">
               {navLinks.map((link) => (
                 <Link 
                   key={link.path} 
                   to={link.path} 
-                  className="text-2xl font-black text-white hover:text-indigo-400 transition-colors uppercase tracking-tight"
+                  className="text-xl md:text-2xl font-black text-white hover:text-indigo-400 transition-colors uppercase tracking-tight"
                 >
                   {link.name}
                 </Link>
               ))}
               <div className="h-px bg-white/5 w-full max-w-[100px]" />
-              <div className="flex flex-col gap-4">
-                <a href={`tel:${BRAND.phone}`} className="text-xs text-slate-400 font-bold flex items-center justify-center gap-2">
-                  <Phone size={14} className="text-indigo-500" /> {BRAND.phone}
+              <div className="flex flex-col gap-3">
+                <a href={`tel:${BRAND.phone}`} className="text-sm text-slate-400 font-bold flex items-center justify-center gap-2">
+                  <Phone size={16} className="text-indigo-500" /> {BRAND.phone}
                 </a>
-                <a href={`mailto:${BRAND.emails.general}`} className="text-xs text-slate-400 font-bold flex items-center justify-center gap-2">
-                  <Mail size={14} className="text-indigo-500" /> info@itlabsghana.com
+                <a href={`mailto:${BRAND.emails.general}`} className="text-sm text-slate-400 font-bold flex items-center justify-center gap-2">
+                  <Mail size={16} className="text-indigo-500" /> info@itlabsghana.com
                 </a>
               </div>
               <Link 
                 to="/services"
-                className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-black rounded-xl shadow-xl uppercase tracking-widest active:scale-95"
+                className="w-full max-w-sm py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm font-black rounded-xl shadow-xl uppercase tracking-widest active:scale-95"
               >
                 Claim Free Website
               </Link>
@@ -180,9 +180,9 @@ const App: React.FC = () => {
                 <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
                   <span className="text-white font-black text-sm">IL</span>
                 </div>
-                <span className="text-lg font-black tracking-tighter text-white uppercase brand-logo">{BRAND.name}</span>
+                <span className="text-lg md:text-xl font-black tracking-tighter text-white uppercase brand-logo">{BRAND.name}</span>
               </Link>
-              <p className="text-slate-500 text-[10px] leading-relaxed max-w-xs mx-auto md:mx-0 font-bold uppercase tracking-widest">
+              <p className="text-slate-500 text-xs md:text-sm leading-relaxed max-w-xs mx-auto md:mx-0 font-bold uppercase tracking-widest">
                 Elite software engineering from the Kwahu hills. Architecting the digital economy of 2026.
               </p>
               <div className="flex justify-center md:justify-start gap-3">
@@ -195,17 +195,17 @@ const App: React.FC = () => {
             </div>
 
             <div className="hidden sm:block">
-              <h4 className="text-white font-black mb-6 text-[10px] uppercase tracking-[0.2em]">Navigations</h4>
-              <ul className="space-y-3 text-[10px] font-black uppercase tracking-widest text-slate-500">
+              <h4 className="text-white font-black mb-6 text-xs md:text-sm uppercase tracking-[0.2em]">Navigations</h4>
+              <ul className="space-y-3 text-xs md:text-sm font-black uppercase tracking-widest text-slate-500">
                 {navLinks.map(link => (
-                  <li key={link.path}><Link to={link.path} className="hover:text-indigo-400 transition-colors flex items-center justify-center md:justify-start gap-2 group"><ChevronRight size={10} className="group-hover:translate-x-1 transition-transform" />{link.name}</Link></li>
+                  <li key={link.path}><Link to={link.path} className="hover:text-indigo-400 transition-colors flex items-center justify-center md:justify-start gap-2 group"><ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />{link.name}</Link></li>
                 ))}
               </ul>
             </div>
 
             <div className="hidden lg:block">
-              <h4 className="text-white font-black mb-6 text-[10px] uppercase tracking-[0.2em]">Engineering</h4>
-              <ul className="space-y-3 text-[10px] font-black uppercase tracking-widest text-slate-500">
+              <h4 className="text-white font-black mb-6 text-xs md:text-sm uppercase tracking-[0.2em]">Engineering</h4>
+              <ul className="space-y-3 text-xs md:text-sm font-black uppercase tracking-widest text-slate-500">
                 <li>Web Architectures</li>
                 <li>Custom SaaS Engines</li>
                 <li>Fintech Mobiles</li>
@@ -214,16 +214,16 @@ const App: React.FC = () => {
             </div>
 
             <div className="space-y-6">
-              <h4 className="text-white font-black text-[10px] uppercase tracking-[0.2em]">Kwahu HQ</h4>
-              <div className="text-[10px] text-slate-400 font-bold space-y-3">
-                <p className="flex items-center justify-center md:justify-start gap-3"><MapPin size={14} className="text-indigo-500 shrink-0" /> {BRAND.location}</p>
-                <p className="flex items-center justify-center md:justify-start gap-3"><Phone size={14} className="text-indigo-500 shrink-0" /> {BRAND.phone}</p>
-                <p className="flex items-center justify-center md:justify-start gap-3"><Mail size={14} className="text-indigo-500 shrink-0" /> info@itlabsghana.com</p>
+              <h4 className="text-white font-black text-xs md:text-sm uppercase tracking-[0.2em]">Kwahu HQ</h4>
+              <div className="text-xs md:text-sm text-slate-400 font-bold space-y-3">
+                <p className="flex items-center justify-center md:justify-start gap-3"><MapPin size={16} className="text-indigo-500 shrink-0" /> {BRAND.location}</p>
+                <p className="flex items-center justify-center md:justify-start gap-3"><Phone size={16} className="text-indigo-500 shrink-0" /> {BRAND.phone}</p>
+                <p className="flex items-center justify-center md:justify-start gap-3"><Mail size={16} className="text-indigo-500 shrink-0" /> info@itlabsghana.com</p>
               </div>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] text-slate-600 font-black uppercase tracking-[0.15em]">
+          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm text-slate-600 font-black uppercase tracking-[0.15em]">
             <p>&copy; 2026 {BRAND.name}. Established Since 2024. All Assets Protected.</p>
             <div className="flex gap-6">
               <Link to="/privacy" className="hover:text-indigo-400 transition-colors">Privacy</Link>
