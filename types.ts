@@ -26,6 +26,7 @@ export interface BrandInfo {
   name: string;
   location: string;
   established: string;
+  phone: string;
   emails: {
     general: string;
     support: string;
