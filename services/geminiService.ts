@@ -2,7 +2,13 @@ import { GoogleGenAI } from "@google/genai";
 import { BRAND } from "../constants";
 
 // Initialize with VITE_GEMINI_API_KEY for Vite environment variable support
-const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+if (!apiKey) {
+  console.error("VITE_GEMINI_API_KEY is not set. Please configure it in your environment variables.");
+}
+
+const ai = new GoogleGenAI({ apiKey: apiKey || '' });
 
 const SYSTEM_INSTRUCTION = `
 You are an expert software engineer and tech consultant for ITLabs Ghana.
@@ -24,6 +30,11 @@ Keep responses concise and formatted for a chat interface.
 
 export async function getAIConsultation(userMessage: string, history: {role: 'user' | 'assistant', content: string}[]) {
   try {
+    // Check if API key is configured
+    if (!apiKey) {
+      return "AI Consultant is not configured. Please contact the administrator to set up the Gemini API key.";
+    }
+
     const model = 'gemini-2.5-flash';
     
     // Convert history for API
