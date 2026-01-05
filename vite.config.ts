@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/itlabs/',
+  base: '/',
   plugins: [react()],
   define: {
     // Ensuring the API key is stringified even if undefined during local builds
