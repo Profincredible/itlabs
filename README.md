@@ -1,3 +1,18 @@
+## Branding
+
+<div align="center">
+  <img src="public/favicons/logo.png" alt="ITLabs Ghana Logo" width="200" />
+</div>
+
+The ITLabs Ghana logo and favicons are located in `public/favicons/`:
+- **logo.png** - Main logo (512x512px) for documentation and branding
+- **favicon.ico** - Multi-resolution icon for browser tabs
+- **favicon-16x16.png**, **favicon-32x32.png**, **favicon-48x48.png** - Standard favicon sizes
+- **apple-touch-icon.png** - iOS home screen icon (180x180px)
+- **site.webmanifest** - Web app manifest with icon references
+
+The logo features the "IT" initials in a tech-focused design with colors matching the site's gradient theme (blue #0ea5e9, indigo #6366f1, purple #a855f7).
+
 ## Run Locally
 
 **Prerequisites:**  Node.js
