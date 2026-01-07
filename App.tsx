@@ -89,10 +89,11 @@ function AppContent({ navLinks, isMenuOpen, setIsMenuOpen, isBannerVisible, setI
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">IT</span>
-              </div>
-              <span className="text-white font-bold text-xl">ITLabs</span>
+              <img 
+                src="/logos/ITLabs1.png" 
+                alt="ITLabs Logo" 
+                className="h-10 w-auto"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -183,10 +184,11 @@ function AppContent({ navLinks, isMenuOpen, setIsMenuOpen, isBannerVisible, setI
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">IT</span>
-                </div>
-                <span className="text-white font-bold text-xl">ITLabs</span>
+                <img 
+                  src="/logos/ITLabs1.png" 
+                  alt="ITLabs Logo" 
+                  className="h-10 w-auto"
+                />
               </div>
               <p className="text-gray-400 text-sm">
                 Transforming ideas into digital reality with cutting-edge technology solutions.
