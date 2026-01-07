@@ -92,7 +92,7 @@ function AppContent({ navLinks, isMenuOpen, setIsMenuOpen, isBannerVisible, setI
               <img 
                 src="/logos/ITLabs1.png" 
                 alt="ITLabs Logo" 
-                className="h-10 w-auto"
+                className="h-16 w-auto"
               />
             </Link>
 
@@ -187,7 +187,7 @@ function AppContent({ navLinks, isMenuOpen, setIsMenuOpen, isBannerVisible, setI
                 <img 
                   src="/logos/ITLabs1.png" 
                   alt="ITLabs Logo" 
-                  className="h-10 w-auto"
+                  className="h-16 w-auto"
                 />
               </div>
               <p className="text-gray-400 text-sm">
